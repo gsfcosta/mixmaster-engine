@@ -11,7 +11,7 @@ pip3 install mixmaster-engine
 # Configurar Banco de Dados:
 Em seu projeto crie o arquivo "settings.toml"
 Cole a configuracao abaixo:
-
+```
 [default]
 host = "127.0.0.1"
 user = "root"
@@ -22,31 +22,34 @@ game = "gamedata"
 data = "S_Data"
 log = "LogDB"
 gametail = "Web_Account"
-
+```
 # Configurar Engine:
 
 import MixMasterEngine
 
 sdata = MixMasterEngine.data()
-  # Conecta ao engine do banco de dados S_Data
-  # Possível fazer pesquisa de varias tabelas, como na s_itens, s_monster, s_npc etc
-  # Total de 30 funções get
-  # exemplo de uso:
+  Conecta ao engine do banco de dados S_Data
+  Possível fazer pesquisa de varias tabelas, como na s_itens, s_monster, s_npc etc
+  Total de 30 funções get
+  exemplo de uso:
+  ```
   items = sdata.get_all_items()
   for item in items: # Faz um loop em todos os itens da s_item
     print(f"{item.idx}: {item.name}") # Imprime o id e nome de todos os itens
   
   item = sdata.get_item("Helmet") # Pode ser tanto id do item quanto o nome dele
   print(f"{item.name}: {item.idx}") # Imprime nome e id do item Helmet
+  ```
 
 player = MixMasterEngine.profile("username")
-  # Carrega todas as informação da conta, como email, e os chars associados a ela
-  # exemplo de uso:
+  Carrega todas as informação da conta, como email, e os chars associados a ela
+  exemplo de uso:
+  ```
   print(player.Email) # Imprime Email da conta
   print(len(player.heros)) # Imprime quanto chars a conta possui
   for hero in player.heros: # Faz um loop nos chars
     print(hero.name) # imprime o nome da cada char
-  
+  ```
 
 players = MixMasterEngine.players() 
   # Conecta ao engine do banco de dados Member.Players
